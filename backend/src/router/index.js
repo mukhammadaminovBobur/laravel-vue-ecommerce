@@ -5,6 +5,11 @@ import RequestPassword from "../views/RequestPassword.vue";
 import ResetPassword from "../views/ResetPassword.vue";
 
 const routes = [
+  // {
+  //   path: '/app',
+  //   name: 'app',
+  //   component: AppLayout
+  // },
   {
     path: '/dashboard',
     name: 'dashboard',
