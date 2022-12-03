@@ -21,8 +21,8 @@
       </div>
 
       <ul class="logout p-4">
-        <li class="hover:bg-blue-900 p-2 rounded-lg transition-bg duration-500 ease-out">
-          <a href="#" class="flex">
+        <li class="hover:bg-blue-900 p-2 rounded-lg transition-bg duration-500 ease-out" @click="logout">
+          <a class="flex">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 pr-1">
               <path stroke-linecap="round" stroke-linejoin="round" d="M5.636 5.636a9 9 0 1012.728 0M12 3v9" />
             </svg>
@@ -65,8 +65,16 @@
 
 <script setup>
 
-const navigations = [
-  { name: 'Dashboard', to: { name: 'app.dashboard' }, },
-  { name: 'Products', to: { name: 'app.products' }, },
-]
+  import router from "../router/index.js";
+  import store from "../store/index.js";
+
+  function logout(){
+    store.commit('logout')
+    router.push({name:'login'})
+  }
+
+  const navigations = [
+    { name: 'Dashboard', to: { name: 'app.dashboard' }, },
+    { name: 'Products', to: { name: 'app.products' }, },
+  ]
 </script>
