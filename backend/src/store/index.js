@@ -6,7 +6,7 @@ const store = createStore({
   state: {
     user: {
       token: sessionStorage.getItem('TOKEN'),
-      data: {}
+      data: {},
     },
   },
   getters: {},
