@@ -5,7 +5,7 @@
 
       <div class="nav-top p-3">
         <ul class="flex flex-col space-y-2 p-4">
-          <li v-for="navigation in navigations" :class="[this.$route.name === navigation.to.name ? 'bg-blue-900' : 'hover:bg-blue-900', 'p-2 rounded-lg transition-bg duration-500 ease-out']">
+          <li v-for="navigation in navigations" :class="[this.$route.name === navigation.to.name ? 'bg-blue-900' : 'hover:bg-blue-900', 'cursor-pointer p-2 rounded-lg transition-bg duration-500 ease-out']">
             <router-link :to="navigation.to" class="flex">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5" />
@@ -21,7 +21,7 @@
       </div>
 
       <ul class="logout p-4">
-        <li class="hover:bg-blue-900 p-2 rounded-lg transition-bg duration-500 ease-out" @click="logout">
+        <li class="cursor-pointer hover:bg-blue-900 p-2 rounded-lg transition-bg duration-500 ease-out" @click="logout">
           <a class="flex">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 pr-1">
               <path stroke-linecap="round" stroke-linejoin="round" d="M5.636 5.636a9 9 0 1012.728 0M12 3v9" />
@@ -69,8 +69,10 @@
   import store from "../store/index.js";
 
   function logout(){
-    store.commit('logout')
-    router.push({name:'login'})
+    store.dispatch('logout')
+      .then(() =>{
+        router.push({name:'login'})
+      })
   }
 
   const navigations = [

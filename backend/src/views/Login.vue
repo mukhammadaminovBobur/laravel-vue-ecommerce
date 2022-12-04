@@ -87,9 +87,9 @@ function login() {
       loading.value = false;
       router.push({name: 'app.dashboard'})
     })
-    .catch(({respose}) =>{
+    .catch(({response}) =>{
       loading.value = false;
-      errorMsg.value = respose.data.message;
+      errorMsg.value = response.data.message;
     })
 
 }
